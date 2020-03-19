@@ -23,7 +23,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         Optional<User> user = users.findById(username);
-        if (user.isEmpty())
+        if (!user.isPresent())
             throw new UsernameNotFoundException(username);
         return new CustomUserDetails(user.get().getUsername(), user.get().getPassword());
     }
