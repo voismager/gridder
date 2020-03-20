@@ -1,9 +1,25 @@
 version: 2.1
 
-orbs:
-  maven: circleci/maven@0.0.12
+docker_defaults: &docker_defaults
+  docker:
+    - image: openjdk:8u212-jre-alpine
+    - image: docker.elastic.co/elasticsearch/elasticsearch:7.6.1
+
+jobs:
+  test:
+    <<: *docker_defaults
+    steps:
+      - checkout
+      - restore_cache:
+          key: circleci-java-spring-{{ checksum "pom.xml" }}
+      - run: mvn dependency:go-offline
+      - save_cache:
+            paths:
+              - ~/.m2
+            key: circleci-java-spring-{{ checksum "pom.xml" }}
+      - run: mvn test
 
 workflows:
-  maven_test:
+  build-test:
     jobs:
-      - maven/test # checkout, build, test, and upload test results
+      - test
