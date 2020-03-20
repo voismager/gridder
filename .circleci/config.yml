@@ -4,6 +4,11 @@ docker_defaults: &docker_defaults
   docker:
     - image: circleci/openjdk:8
     - image: docker.elastic.co/elasticsearch/elasticsearch:7.6.1
+      environment:
+        discovery.type: single-node
+        http.port: 9200
+        transport.host: localhost
+        network.host: 127.0.0.1
 
 jobs:
   test:
