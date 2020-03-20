@@ -2,7 +2,7 @@ version: 2.1
 
 docker_defaults: &docker_defaults
   docker:
-    - image: openjdk:8u212-jre-alpine
+    - image: circleci/openjdk:8
     - image: docker.elastic.co/elasticsearch/elasticsearch:7.6.1
 
 jobs:
