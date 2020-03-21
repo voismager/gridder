@@ -9,6 +9,7 @@ docker_defaults: &docker_defaults
         http.port: 9200
         transport.host: localhost
         network.host: 127.0.0.1
+  working_directory: ~/repo
 
 jobs:
   test-deploy:
@@ -37,7 +38,7 @@ jobs:
           fingerprints:
             - "6f:6e:ed:68:b2:b1:67:70:24:b1:26:f5:9d:af:79:17"
       - deploy:
-          command: ~/grid/.circleci/deploy.sh
+          command: ~/repo/.circleci/deploy.sh
 
 workflows:
   build-test:
