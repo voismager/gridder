@@ -22,7 +22,7 @@ jobs:
             paths:
               - ~/.m2
             key: circleci-java-spring-{{ checksum "pom.xml" }}
-      - run: mvn test
+      - run: mvn package
       - run:
           name: Save test results
           command: |
