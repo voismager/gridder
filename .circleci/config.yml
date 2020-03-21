@@ -37,6 +37,8 @@ jobs:
       - add_ssh_keys:
           fingerprints:
             - "6f:6e:ed:68:b2:b1:67:70:24:b1:26:f5:9d:af:79:17"
+      - run:
+          chmod +x ~/repo/.circleci/*.sh
       - deploy:
           command: ~/repo/.circleci/deploy.sh
 
