@@ -4,6 +4,9 @@ import com.example.grid.data.payload.*;
 import com.example.grid.data.payload.post.CreatePost;
 import com.example.grid.data.payload.post.GetPost;
 import com.example.grid.service.PostService;
+import io.swagger.v3.oas.annotations.OpenAPIDefinition;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.info.Info;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
@@ -25,7 +28,7 @@ public class PostRestController {
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public void create(@RequestBody CreatePost data, @AuthenticationPrincipal UserDetails details) {
+    public void create(@RequestBody CreatePost data, @Parameter(hidden = true) @AuthenticationPrincipal UserDetails details) {
         this.postService.create(data, details.getUsername());
     }
 
