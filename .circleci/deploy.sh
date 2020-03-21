@@ -1,1 +1,1 @@
-scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null grid/target/grid-0.0.1-SNAPSHOT.jar vlad@134.209.182.89:/home/vlad
+scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null ~/repo/target/grid-0.0.1-SNAPSHOT.jar vlad@134.209.182.89:/home/vlad
