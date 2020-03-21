@@ -11,7 +11,7 @@ docker_defaults: &docker_defaults
         network.host: 127.0.0.1
 
 jobs:
-  test:
+  test-deploy:
     <<: *docker_defaults
     steps:
       - checkout
@@ -33,8 +33,13 @@ jobs:
           path: ~/test-results
       - store_artifacts:
           path: ~/test-results/junit
+      - add_ssh_keys:
+          fingerprints:
+            - "6f:6e:ed:68:b2:b1:67:70:24:b1:26:f5:9d:af:79:17"
+      - deploy:
+          command: ~/.circleci/deploy.sh
 
 workflows:
   build-test:
     jobs:
-      - test
+      - test-deploy
