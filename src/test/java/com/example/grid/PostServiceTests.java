@@ -22,6 +22,15 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 @SpringBootTest
 @ExtendWith(SpringExtension.class)
 class PostServiceTests {
+    private static String text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer congue metus et ullamcorper feugiat. Sed id elementum odio. Sed nec posuere arcu. Suspendisse vel aliquet dolor. Sed fermentum ut libero quis lobortis. Sed placerat nisl at facilisis iaculis. Cras sed lacus malesuada, cursus justo eget, mollis ante. Donec euismod ante quis turpis imperdiet, et sodales odio gravida. Sed tristique sapien lorem, ut vehicula nunc elementum at. Sed augue magna, viverra non convallis consequat, auctor quis quam.\n" +
+            "\n" +
+            "Ut interdum cursus mauris eu pretium. Nullam ut odio at diam sagittis lacinia at sed urna. Nulla ut orci justo. Nam faucibus ullamcorper pharetra. Pellentesque et orci vitae nisl dapibus placerat. Quisque vitae velit rutrum, maximus dolor vel, euismod sem. Sed vulputate quam sit amet hendrerit placerat.\n" +
+            "\n" +
+            "Nunc velit nulla, ultrices sit amet tincidunt sit amet, semper a purus. Nulla a erat elementum, viverra lacus non, rhoncus mi. Mauris nec egestas magna. Nullam eget hendrerit libero. Phasellus sagittis libero ut pellentesque dictum. Donec ut dictum erat, sed fermentum risus. Nullam ultricies nibh metus, ac tincidunt metus dignissim eget. Maecenas est sapien, faucibus non tellus sit amet, varius auctor lacus. Donec pulvinar gravida elementum.\n" +
+            "\n" +
+            "Nulla turpis quam, feugiat non rutrum et, auctor sed dolor. Proin quis lacus metus. Nulla est dolor, convallis eget sem in, dapibus lobortis leo. Vivamus id eros nec orci mollis hendrerit. In tellus lorem, vehicula id enim in, interdum consequat nisi. Mauris justo eros, bibendum a mollis eu, ultricies vitae magna. Nullam mattis lacinia justo, tristique congue ante fringilla sit amet. In hac habitasse platea dictumst. Ut efficitur semper tortor a posuere. Curabitur pulvinar blandit auctor. Mauris cursus ligula nunc, quis condimentum arcu interdum quis. Quisque neque mi, auctor eget sagittis eu, laoreet ac magna. Sed efficitur bibendum ex. Aliquam et vestibulum urna. Nunc quis lectus ultrices, commodo nibh lacinia, facilisis quam.\n" +
+            "\n" +
+            "Vestibulum non leo augue. Morbi molestie laoreet aliquam. Morbi at risus pulvinar, rutrum arcu ac, consequat sapien. Cras blandit, erat nec varius auctor, ligula leo tristique nisi, eu rhoncus risus lorem eget libero. Quisque cursus lorem sit amet laoreet hendrerit. Nunc ac vehicula risus, in fermentum nunc. Phasellus efficitur vulputate sem, a tristique elit consectetur at. Praesent sed dui et mauris condimentum mollis in sit amet erat.";
 
     @Autowired
     private PostService postService;
@@ -36,15 +45,6 @@ class PostServiceTests {
         }
 
         Random random = new Random();
-        String text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer congue metus et ullamcorper feugiat. Sed id elementum odio. Sed nec posuere arcu. Suspendisse vel aliquet dolor. Sed fermentum ut libero quis lobortis. Sed placerat nisl at facilisis iaculis. Cras sed lacus malesuada, cursus justo eget, mollis ante. Donec euismod ante quis turpis imperdiet, et sodales odio gravida. Sed tristique sapien lorem, ut vehicula nunc elementum at. Sed augue magna, viverra non convallis consequat, auctor quis quam.\n" +
-                "\n" +
-                "Ut interdum cursus mauris eu pretium. Nullam ut odio at diam sagittis lacinia at sed urna. Nulla ut orci justo. Nam faucibus ullamcorper pharetra. Pellentesque et orci vitae nisl dapibus placerat. Quisque vitae velit rutrum, maximus dolor vel, euismod sem. Sed vulputate quam sit amet hendrerit placerat.\n" +
-                "\n" +
-                "Nunc velit nulla, ultrices sit amet tincidunt sit amet, semper a purus. Nulla a erat elementum, viverra lacus non, rhoncus mi. Mauris nec egestas magna. Nullam eget hendrerit libero. Phasellus sagittis libero ut pellentesque dictum. Donec ut dictum erat, sed fermentum risus. Nullam ultricies nibh metus, ac tincidunt metus dignissim eget. Maecenas est sapien, faucibus non tellus sit amet, varius auctor lacus. Donec pulvinar gravida elementum.\n" +
-                "\n" +
-                "Nulla turpis quam, feugiat non rutrum et, auctor sed dolor. Proin quis lacus metus. Nulla est dolor, convallis eget sem in, dapibus lobortis leo. Vivamus id eros nec orci mollis hendrerit. In tellus lorem, vehicula id enim in, interdum consequat nisi. Mauris justo eros, bibendum a mollis eu, ultricies vitae magna. Nullam mattis lacinia justo, tristique congue ante fringilla sit amet. In hac habitasse platea dictumst. Ut efficitur semper tortor a posuere. Curabitur pulvinar blandit auctor. Mauris cursus ligula nunc, quis condimentum arcu interdum quis. Quisque neque mi, auctor eget sagittis eu, laoreet ac magna. Sed efficitur bibendum ex. Aliquam et vestibulum urna. Nunc quis lectus ultrices, commodo nibh lacinia, facilisis quam.\n" +
-                "\n" +
-                "Vestibulum non leo augue. Morbi molestie laoreet aliquam. Morbi at risus pulvinar, rutrum arcu ac, consequat sapien. Cras blandit, erat nec varius auctor, ligula leo tristique nisi, eu rhoncus risus lorem eget libero. Quisque cursus lorem sit amet laoreet hendrerit. Nunc ac vehicula risus, in fermentum nunc. Phasellus efficitur vulputate sem, a tristique elit consectetur at. Praesent sed dui et mauris condimentum mollis in sit amet erat.";
         List<String> words = Arrays.asList(text.split(" "));
 
         int index = 0;
