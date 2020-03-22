@@ -12,6 +12,7 @@ import java.util.Date;
 
 import static org.springframework.data.elasticsearch.annotations.FieldType.Keyword;
 
+//test
 @Document(indexName = "blog", type = "post")
 @Getter @Setter
 @NoArgsConstructor
